@@ -37,3 +37,10 @@ the "B1ChatProgram" is the latest version
 3. **run ChatServer.java first**,or things will go wrong
 4. **run ChatClientGUI.java** then,**Allow multiple instances**!!!
 
+
+
+## 0531 Changes
+
+In terms of E1,optimize and beauty the HTML page
+
+In terms of E2,add the funtion of appending the start message of the client in the server
