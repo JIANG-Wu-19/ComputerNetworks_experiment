@@ -43,16 +43,18 @@ public class ChatClientGUI extends JFrame {
             }
         });
 
+        //将输入框和发送按钮放在一个JPanel中
         JPanel input = new JPanel();
         input.setLayout(new BorderLayout());
         input.add(messageField, BorderLayout.CENTER);
         input.add(send, BorderLayout.EAST);
 
+        //将聊天框和输入框放在一个JFrame中
         setLayout(new BorderLayout());
         add(jsp, BorderLayout.CENTER);
         add(input, BorderLayout.SOUTH);
 
-        setDefaultCloseOperation((JFrame.DISPOSE_ON_CLOSE));
+        setDefaultCloseOperation((JFrame.EXIT_ON_CLOSE));
         pack();
         setVisible(true);
 
@@ -60,6 +62,7 @@ public class ChatClientGUI extends JFrame {
 
     }
 
+    //连接服务器
     private void connectToServer() {
         try {
             //通过socket连接服务器端口
@@ -94,6 +97,7 @@ public class ChatClientGUI extends JFrame {
     }
 
 
+    //创建一个内部类MessageListener来监听消息
     private class MessageListener implements Runnable {
         @Override
         //使用一个无限循环来持续监听消息。
@@ -119,6 +123,7 @@ public class ChatClientGUI extends JFrame {
     }
 
     public static void main(String[] args) {
+        //使用SwingUtilities.invokeLater()方法来创建一个新的线程来运行GUI。
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {

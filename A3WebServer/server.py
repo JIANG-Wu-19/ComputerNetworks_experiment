@@ -3,6 +3,7 @@
 import socket
 
 
+# 定义 handle_request 函数，用于处理客户端请求
 def handle_request(client_socket):
     # 接收客户端请求数据从客户端套接字接收最多 1024 字节的数据，并将其解码为字符串，存储在变量 request_data 中，
     request_data = client_socket.recv(1024).decode()
@@ -46,6 +47,7 @@ def handle_request(client_socket):
     client_socket.close()
 
 
+# 定义 run_server 函数，用于启动服务器
 def run_server():
     # 创建服务器套接字.
     # socket.AF_INET 参数表示使用 IPv4 地址族，socket.SOCK_STREAM 参数表示使用 TCP 协议。
@@ -58,6 +60,7 @@ def run_server():
     server_socket.listen(1)
     print('Server is running on http://localhost:80')
 
+    # 服务器进入循环，不断地接收客户端的连接请求
     while True:
         # 等待客户端连接
         client_socket, addr = server_socket.accept()
